@@ -1,0 +1,74 @@
+// Place all the styles related to the home controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+/*!
+ * Start Bootstrap - Heroic Features HTML Template (http://startbootstrap.com)
+ * Code licensed under the Apache License v2.0.
+ * For details, see http://www.apache.org/licenses/LICENSE-2.0.
+ */
+
+body {
+    padding-top: 50px; /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
+}
+
+.hero-spacer {
+    margin-top: 50px;
+    background: transparent image-url("osteriabanner.jpg") center center no-repeat;
+    color: #fff;
+    text-shadow: 1px 1px #527a7a;
+}
+
+.hero-feature {
+    margin-bottom: 30px;
+}
+
+.thumbnail {
+    position: relative;    
+}
+
+/*a.btn:visited { color: #fff;}
+a.btn:active { color: #fff;}
+a.btn:link { color: #fff;}*/
+
+h3,.h3 {font-size: 23px;}
+
+.pricetag{
+    background: #ff8000 none repeat scroll 0 0;
+    border-radius: 0 5px 5px 0;
+    box-shadow: 0 -2px 0 rgba(0, 0, 0, 0.4) inset, 0 2px 3px rgba(0, 0, 0, 0.5);
+    color: #fff;
+    display: block;
+    height: 26px;
+    line-height: 23px;
+    margin-top: -5px;
+    padding: 0 21px 0 10px;
+    position: absolute;
+    right: -7px;
+    white-space: nowrap;
+}
+.pricetag:after{
+    color: white;
+    content: "●";
+    font-size: 11px;
+    line-height: 0;
+    position: absolute;
+    right: 7px;
+    text-indent: 12px;
+    text-shadow: 0 0 1px #333;
+    top: 11px;
+}
+.pricetag:before{
+    border-bottom: 12px solid transparent;
+    border-right: 14px solid #ff8000;
+    border-top: 14px solid transparent;
+    content: "";
+    height: 0;
+    left: -14px;
+    position: absolute;
+    top: 0;
+    width: 1px;
+}
+
+footer {
+    margin: 50px 0;
+}

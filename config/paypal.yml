@@ -1,0 +1,30 @@
+test: &default
+
+  # Credentials for REST APIs
+  client_id: AcBSBLrmtCtikMaIUnqWJvUdz9bpp5u4UyK_-0k8fHCYgHO8NAilMqNwu0LiYcmVpeU7P5NSKaDjE9R4
+  client_secret: EEpF07SyBNSfur-a3V-wnvZhYR1fdw1m2Ypy-WVgX8269FBlafICWowJPA0REWx0--f3jx9BHQ_4Gysl
+
+  # Mode can be 'live' or 'sandbox'
+  mode: sandbox
+
+  # Credentials for Classic APIs
+  app_id: APP-80W284485P519543T
+  username: normallstory-facilitator_api1.gmail.com
+  password: UNWEMAG76REMVSPN
+  signature: AEeMeFzSyqt2YBTuB9tkkhMmicPpAzwRVtFOK8ILhSJSirR3cVVPXLE8
+  # # With Certificate
+  # cert_path: "config/cert_key.pem"
+  sandbox_email_address: normallstory-merchant@gmail.com
+
+  # # IP Address
+  # ip_address: 127.0.0.1
+  # # HTTP Proxy
+  # http_proxy: http://proxy-ipaddress:3129/
+  # redirect_uri: "http://127.0.0.1:3000/payments/"
+
+development:
+  <<: *default
+
+production:
+  <<: *default
+  mode: live

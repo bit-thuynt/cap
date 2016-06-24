@@ -1,0 +1,16 @@
+<div class="col-md-3 col-sm-6 hero-feature">
+    <div class="thumbnail">
+        <img alt="" src="<%= image_path(product.image) %>">
+        <div class="caption">
+            <label class="pricetag"><%= number_to_currency(product.price) %></label>
+            <h3><%= product.name %></h3>
+            <p class="desc">
+                <%= truncate(product.desc, :length => 120) %>
+            </p>
+            <p>
+                <%= link_to 'Buy Now!', "/products/order/#{product.id}" , class: "btn btn-primary"%>
+                <%= link_to 'More Info', product , class: "btn btn-default"%>
+            </p>
+        </div>
+    </div>
+</div>

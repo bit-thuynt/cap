@@ -1,0 +1,28 @@
+<p id="notice">
+    <%= notice %>
+</p>
+
+<div class="row">
+    <div class="col-md-12">
+        <h2><%= @product.name %></h2>
+    </div>
+    <div class="col-md-4">
+        <img src="<%= image_path(@product.image) %>" width="100%"/>
+    </div>
+
+    <div class="col-md-4">
+        <h3 class="text-danger"><%= number_to_currency(@product.price) %> <%= link_to 'Buy Now!', "/products/order/#{@product.id}", class:"btn btn-primary btn-lg" %></h3>
+        <label>Description:</label>
+        <p>
+             <%= @product.desc %>
+        </p>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        &nbsp;
+    </div>
+</div>
+        
+<%= link_to 'Back', home_index_path, class:"btn btn-default" %>

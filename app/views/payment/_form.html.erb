@@ -1,0 +1,22 @@
+<div style="padding-left: 50px; line-height: 30px;">
+    <%= form_tag(payment_new_path, method: "post") do %>
+       
+        <div class="field">
+            <%= label_tag(:name, "Name:") %><br/>
+            <%= select_tag(:name, options_for_select([['Pancake'], ['Pudding'],['Pound cake'], ['Apple pie'], ['Gypsy tart'], ['Eccles cake']]) ) %>
+        </div>
+        
+        <div class="field">
+            <%= label_tag(:quantity, "Quantity:") %><br/>
+            <%= text_field_tag(:quantity, 1) %>
+        </div>
+        
+        <div class="field">
+            <%= label_tag(:amount, "Amount:") %><br/>
+            <%= text_field_tag(:amount, 10) %>$
+        </div>
+        
+        <br/>
+        <%= submit_tag("Buy") %>
+    <% end %>
+</div>

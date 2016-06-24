@@ -1,0 +1,100 @@
+<p id="notice">
+    <%= notice %>
+</p>
+
+<%= form_tag(payment_new_path, method: "post") do %>
+    <%= hidden_field_tag(:product, @product.id) %>
+    <%= hidden_field_tag(:price, @product.price, id: "pd_price") %>
+<div class="row">
+    <div class="col-md-12">
+        <h2><%= @product.name %></h2>
+    </div>
+    <div class="col-md-4">
+        <img src="<%= image_path(@product.image) %>" width="100%"/>
+        <label>Description:</label>
+        <p>
+             <%= @product.desc %>
+        </p>
+    </div>
+
+    <div class="col-md-4">
+        
+        <div class="col-md-12">
+            
+            <div class="payment_method">
+                <%= radio_button_tag(:payment_method, "paypal", checked: true) %>
+                <label for="payment_method_paypal"><%= image_tag("pp-logo-200px.png", style: "max-width: 100px;" ) %></label>
+                <span>&nbsp;&nbsp;&nbsp;</span>
+                <%= radio_button_tag(:payment_method, "card") %>
+                <label for="payment_method_card"><%= image_tag("card.jpg", style: "max-width: 100px;" ) %></label>
+                
+            </div>
+        </div>
+        
+        <div class="payment_method col-md-12">
+            <h3 class="text-danger"><%= number_to_currency(@product.price) %></h3>
+        </div>
+        
+        <div>
+            <label class="col-md-4">Quantity</label>
+            <%= number_field_tag(:quantity, 1, style: "width:60px", class: "text-right", id: "pd_quantity") %>
+            <br>
+            <label class="col-md-4">Total</label><span id="total" class="text-success"><%= number_to_currency(@product.price) %></span>
+        </div>
+        
+        <br>
+        <div class="col-md-12">
+            <button type="submit" class="btn btn-warning btn-lg" style="width: 100px;">Buy</button>
+        </div>
+    </div>
+    
+    <div class="col-md-4">
+        <div id="card-info">
+            <div class="field">
+                <%= label_tag :first_name %><br>
+                <%= text_field_tag "card[first_name]", 'Vivaldi' %>
+            </div>
+            <div class="field">
+                <%= label_tag :last_name %><br>
+                <%= text_field_tag "card[last_name]", 'Kok' %>
+            </div>
+            <div class="field">
+                <%= label_tag :card_type %><br>
+                <%= select_tag "card[card_type]", options_for_select([["Visa", "visa"], ["MasterCard", "master"], ["Discover", "discover"], ["American Express", "american_express"]]) %>
+            </div>
+            <div class="field">
+                <%= label_tag :card_number %><br>
+                <%= text_field_tag "card[card_number]", '4032033050276760' %>
+            </div>
+            <div class="field">
+                <%= label_tag :card_verification, "Card Verification Value (CVV)" %><br>
+                <%= text_field_tag "card[card_verification]", '123' %>
+            </div>
+            <div class="field">
+                <%= label_tag :card_expires_on %><br>
+                <%= date_select "card[card_expires_on]", default: Date.new(1989, 1, 1), discard_day: true, start_year: Date.today.year, end_year: (Date.today.year+10), add_month_numbers: true %>
+            </div>
+        </div>
+    </div>
+</div>
+<% end %>
+
+<div class="row">
+    <div class="col-md-12">
+        &nbsp;
+    </div>
+</div>
+        
+<%= link_to 'Back', home_index_path, class:"btn btn-default" %>
+
+<script>
+    $(document).ready(function(){
+        $('#pd_quantity').keyup(totalCal).change(totalCal);
+    });
+    
+    function totalCal(){
+        total = $('#pd_price').val() * $('#pd_quantity').val();
+        total = '$' + parseFloat(total, 10).toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, "$1,").toString()
+        $('#total').text(total);
+    }
+</script>
